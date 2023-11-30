@@ -12,6 +12,7 @@ const Forms = () => {
           }
         }
       >
+        <h1>Form</h1>
         <Form
           labelCol={{
             span: 6,
