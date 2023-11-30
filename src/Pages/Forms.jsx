@@ -5,13 +5,7 @@ const { RangePicker } = DatePicker;
 const Forms = () => {
   return (
     <DefaultLayout>
-      <div
-        style={
-          {
-            //backgroundColor: "#19375B",
-          }
-        }
-      >
+      <div>
         <h1>Form</h1>
         <Form
           labelCol={{
@@ -31,8 +25,6 @@ const Forms = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                // backgroundColor: "#19375B", // Set background color
-                //color: "white", // Set text color
               }}
             >
               <div>
@@ -129,7 +121,7 @@ const Forms = () => {
             </Select>
           </Form.Item>
           <Form.Item label="Регион">
-            <Select>
+            <Select clearBg="#19375B">
               <Select.Option value="region1">
                 Восточно-Казахстанская область
               </Select.Option>
