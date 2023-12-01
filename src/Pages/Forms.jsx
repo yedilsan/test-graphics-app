@@ -21,7 +21,6 @@ const Forms = () => {
           },
         }}
       >
-        <h1 style={{ color: "white" }}>Form</h1>
         <Form
           labelCol={{
             span: 6,
@@ -34,6 +33,7 @@ const Forms = () => {
             maxWidth: 600,
           }}
         >
+          <h1 style={{ color: "white" }}>Form</h1>
           <Form.Item>
             <Radio.Group
               style={{
@@ -54,7 +54,6 @@ const Forms = () => {
           <Form.Item label="Период">
             <RangePicker style={{ width: "100%" }} />
           </Form.Item>
-
           <Form.Item label="Тип обращения">
             <Select>
               <Select.Option value="appeal1">Жалоба</Select.Option>
@@ -158,7 +157,6 @@ const Forms = () => {
               <Select.Option value="overdue2">Просроченные</Select.Option>
             </Select>
           </Form.Item>
-
           <Form.Item label=" ">
             <Button type="default " htmlType="submit">
               Submit

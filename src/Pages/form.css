@@ -7,3 +7,12 @@
 svg {
   fill: #26538a;
 }
+
+/*Filter modal*/
+.ant-modal {
+  padding-bottom: 0;
+}
+
+.ant-btn-primary {
+  box-shadow: none;
+}

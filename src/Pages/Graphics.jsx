@@ -16,9 +16,20 @@ import ZoomableRadar from "../components/Graphics/RadarPolar/ZoomableRadar";
 import PolarAreaChart from "../components/Graphics/RadarPolar/PolarAreaChart";
 import FlowerChart from "../components/Graphics/RadarPolar/FlowerChart";
 import "./graphics.css";
+import Filter from "../components/filter";
 
 const Graphics = () => (
   <DefaultLayout>
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        right: 0,
+        margin: "15px",
+      }}
+    >
+      <Filter />
+    </div>
     <h2 style={{ textAlign: "center" }}>Column & Bar</h2>
     <div className="charts">
       <RotatedLabels />
