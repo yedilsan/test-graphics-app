@@ -17,6 +17,8 @@ const DefaultLayout = ({ children }) => {
           colorBgContainer: "#19375B",
           colorBgLayout: "#19375B",
           colorText: "white",
+          colorTextPlaceholder: "white",
+          colorIcon: "#19375B",
         },
       }}
     >
