@@ -13,7 +13,11 @@ const Forms = () => {
               multipleItemBg: "rgba(38, 83, 138, 1)",
               optionActiveBg: "#4c73a1",
             },
-            DatePicker: {},
+            DatePicker: {
+              cellActiveWithRangeBg: "#161514",
+              cellHoverBg: "#4c73a1",
+              cellHoverWithRangeBg: "#4c73a1",
+            },
           },
         }}
       >
