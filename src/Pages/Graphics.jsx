@@ -15,6 +15,7 @@ import WorldMapClusteredPoints from "../components/Graphics/Maps/WorldMapCluster
 import ZoomableRadar from "../components/Graphics/RadarPolar/ZoomableRadar";
 import PolarAreaChart from "../components/Graphics/RadarPolar/PolarAreaChart";
 import WheelofLife from "../components/Graphics/RadarPolar/WheelofLife";
+import "./graphics.css";
 
 const Graphics = () => (
   <DefaultLayout>

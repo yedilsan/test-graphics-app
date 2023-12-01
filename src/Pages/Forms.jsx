@@ -1,12 +1,23 @@
 import DefaultLayout from "../Layout/DefaultLayout";
-import { DatePicker, Form, Radio, Select, Button } from "antd";
+import { DatePicker, Form, Radio, Select, Button, ConfigProvider } from "antd";
 const { RangePicker } = DatePicker;
+import "./form.css";
 
 const Forms = () => {
   return (
     <DefaultLayout>
-      <div>
-        <h1>Form</h1>
+      <ConfigProvider
+        theme={{
+          components: {
+            Select: {
+              multipleItemBg: "rgba(38, 83, 138, 1)",
+              optionActiveBg: "#4c73a1",
+            },
+            DatePicker: {},
+          },
+        }}
+      >
+        <h1 style={{ color: "white" }}>Form</h1>
         <Form
           labelCol={{
             span: 6,
@@ -39,6 +50,7 @@ const Forms = () => {
           <Form.Item label="Период">
             <RangePicker style={{ width: "100%" }} />
           </Form.Item>
+
           <Form.Item label="Тип обращения">
             <Select>
               <Select.Option value="appeal1">Жалоба</Select.Option>
@@ -121,7 +133,7 @@ const Forms = () => {
             </Select>
           </Form.Item>
           <Form.Item label="Регион">
-            <Select clearBg="#19375B">
+            <Select>
               <Select.Option value="region1">
                 Восточно-Казахстанская область
               </Select.Option>
@@ -142,13 +154,14 @@ const Forms = () => {
               <Select.Option value="overdue2">Просроченные</Select.Option>
             </Select>
           </Form.Item>
+
           <Form.Item label=" ">
-            <Button type="primary" htmlType="submit">
+            <Button type="default " htmlType="submit">
               Submit
             </Button>
           </Form.Item>
         </Form>
-      </div>
+      </ConfigProvider>
     </DefaultLayout>
   );
 };

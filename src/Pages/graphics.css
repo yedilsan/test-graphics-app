@@ -1,0 +1,17 @@
+.charts {
+  display: flex;
+  gap: 50px;
+  padding: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.chart {
+  width: 600px;
+  height: 400px;
+}
+
+.chart_map {
+  min-width: 50vw;
+  height: 50vh;
+}
