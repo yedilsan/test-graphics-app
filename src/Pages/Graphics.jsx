@@ -16,7 +16,7 @@ import ZoomableRadar from "../components/Graphics/RadarPolar/ZoomableRadar";
 import PolarAreaChart from "../components/Graphics/RadarPolar/PolarAreaChart";
 import FlowerChart from "../components/Graphics/RadarPolar/FlowerChart";
 import "./graphics.css";
-import Filter from "../components/filter";
+import Filter from "../components/Filter";
 
 const Graphics = () => (
   <DefaultLayout>
