@@ -14,7 +14,7 @@ import ZoomableBubbleChart from "../components/Graphics/XYBubble/ZoomableBubbleC
 import WorldMapClusteredPoints from "../components/Graphics/Maps/WorldMapClusteredPoints";
 import ZoomableRadar from "../components/Graphics/RadarPolar/ZoomableRadar";
 import PolarAreaChart from "../components/Graphics/RadarPolar/PolarAreaChart";
-import WheelofLife from "../components/Graphics/RadarPolar/WheelofLife";
+import FlowerChart from "../components/Graphics/RadarPolar/FlowerChart";
 import "./graphics.css";
 
 const Graphics = () => (
@@ -49,7 +49,7 @@ const Graphics = () => (
     <div className="charts">
       <ZoomableRadar />
       <PolarAreaChart />
-      <WheelofLife />
+      <FlowerChart />
     </div>
   </DefaultLayout>
 );
