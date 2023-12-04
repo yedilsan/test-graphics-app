@@ -2,6 +2,7 @@ import DefaultLayout from "../Layout/DefaultLayout";
 import { DatePicker, Form, Radio, Select, Button, ConfigProvider } from "antd";
 const { RangePicker } = DatePicker;
 import "./form.css";
+import React from "react";
 
 const Forms = () => {
   return (
@@ -158,7 +159,7 @@ const Forms = () => {
             </Select>
           </Form.Item>
           <Form.Item label=" ">
-            <Button type="default " htmlType="submit">
+            <Button type="default" htmlType="submit">
               Submit
             </Button>
           </Form.Item>

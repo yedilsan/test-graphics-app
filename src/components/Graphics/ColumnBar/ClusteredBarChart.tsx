@@ -1,8 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import React from "react";
 
 const ClusteredBarChart = () => {
   useEffect(() => {
@@ -83,7 +83,7 @@ const ClusteredBarChart = () => {
 
     // Add series
     // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-    function createSeries(field, name) {
+    function createSeries(field: string, name: string) {
       let series = chart.series.push(
         am5xy.ColumnSeries.new(root, {
           name: name,

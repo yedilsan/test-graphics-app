@@ -1,15 +1,14 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5percent from "@amcharts/amcharts5/percent";
-
-const PieChart = () => {
+import React from "react";
+const DonutChart = () => {
   useEffect(() => {
     /* Chart code */
     // Create root element
     // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-    let root = am5.Root.new("PieChart");
+    let root = am5.Root.new("DonutChart");
 
     // Set themes
     // https://www.amcharts.com/docs/v5/concepts/themes/
@@ -19,7 +18,8 @@ const PieChart = () => {
     // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
     let chart = root.container.children.push(
       am5percent.PieChart.new(root, {
-        endAngle: 270,
+        layout: root.verticalLayout,
+        innerRadius: am5.percent(50),
       })
     );
 
@@ -29,47 +29,43 @@ const PieChart = () => {
       am5percent.PieSeries.new(root, {
         valueField: "value",
         categoryField: "category",
-        endAngle: 270,
+        alignLabels: false,
       })
     );
 
-    series.states.create("hidden", {
-      endAngle: -90,
+    series.labels.template.setAll({
+      textType: "circular",
+      centerX: 0,
+      centerY: 0,
     });
 
     // Set data
     // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
     series.data.setAll([
-      {
-        category: "Lithuania",
-        value: 501.9,
-      },
-      {
-        category: "Czechia",
-        value: 301.9,
-      },
-      {
-        category: "Ireland",
-        value: 201.1,
-      },
-      {
-        category: "Germany",
-        value: 165.8,
-      },
-      {
-        category: "Australia",
-        value: 139.9,
-      },
-      {
-        category: "Austria",
-        value: 128.3,
-      },
-      {
-        category: "UK",
-        value: 99,
-      },
+      { value: 10, category: "One" },
+      { value: 9, category: "Two" },
+      { value: 6, category: "Three" },
+      { value: 5, category: "Four" },
+      { value: 4, category: "Five" },
+      { value: 3, category: "Six" },
+      { value: 1, category: "Seven" },
     ]);
 
+    // Create legend
+    // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
+    let legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerX: am5.percent(50),
+        x: am5.percent(50),
+        marginTop: 15,
+        marginBottom: 15,
+      })
+    );
+
+    legend.data.setAll(series.dataItems);
+
+    // Play initial series animation
+    // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
     series.appear(1000, 100);
 
     // Cleanup on unmount
@@ -78,7 +74,7 @@ const PieChart = () => {
     };
   }, []); // Run this effect only once on mount
 
-  return <div id="PieChart" className="chart"></div>;
+  return <div id="DonutChart" className="chart"></div>;
 };
 
-export default PieChart;
+export default DonutChart;

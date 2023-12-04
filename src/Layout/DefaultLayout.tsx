@@ -1,13 +1,13 @@
-// eslint-disable-next-line no-unused-vars
-import { React, useState } from "react";
 import { AreaChartOutlined, FormOutlined } from "@ant-design/icons";
-import { ConfigProvider, Layout, Menu, theme } from "antd";
+import { ConfigProvider, Layout, Menu } from "antd";
+import React from "react";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 const { Content, Footer, Sider } = Layout;
 
 // eslint-disable-next-line react/prop-types
-const DefaultLayout = ({ children }) => {
+const DefaultLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <ConfigProvider
       theme={{
@@ -36,7 +36,7 @@ const DefaultLayout = ({ children }) => {
           <div className="demo-logo-vertical">
             <h1 style={{ color: "white", textAlign: "center" }}>Ant Design</h1>
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={"1"}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1" icon={<AreaChartOutlined />}>
               <NavLink to="/">Graphics</NavLink>
             </Menu.Item>

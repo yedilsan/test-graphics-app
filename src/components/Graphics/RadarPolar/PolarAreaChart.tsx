@@ -1,64 +1,43 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5radar from "@amcharts/amcharts5/radar";
-import "./radar.css";
 
-const FlowerChart = () => {
+const PolarAreaChart = () => {
   useEffect(() => {
+    /* Chart code */
     // Create root element
     // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-    let root = am5.Root.new("FlowerChart");
+    let root = am5.Root.new("PolarAreaChart");
 
     // Set themes
     // https://www.amcharts.com/docs/v5/concepts/themes/
     root.setThemes([am5themes_Animated.new(root)]);
 
-    // Data
+    // Generate and set data
     // https://www.amcharts.com/docs/v5/charts/radar-chart/#Setting_data
-    let data = [
-      {
-        category: "One",
-        value1: 8,
-        value2: 2,
-      },
-      {
-        category: "Two",
-        value1: 11,
-        value2: 4,
-      },
-      {
-        category: "Three",
-        value1: 7,
-        value2: 6,
-      },
-      {
-        category: "Four",
-        value1: 13,
-        value2: 8,
-      },
-      {
-        category: "Five",
-        value1: 12,
-        value2: 10,
-      },
-      {
-        category: "Six",
-        value1: 15,
-        value2: 12,
-      },
-      {
-        category: "Seven",
-        value1: 9,
-        value2: 14,
-      },
-      {
-        category: "Eight",
-        value1: 6,
-        value2: 16,
-      },
-    ];
+    let cat = -1;
+    let value = 10;
+
+    function generateData() {
+      value = Math.round(Math.random() * 10);
+      cat++;
+      return {
+        category: "cat" + cat,
+        value: value,
+      };
+    }
+
+    function generateDatas(count: number) {
+      cat = -1;
+      let data = [] as { category: string; value: number }[];
+      for (var i = 0; i < count; ++i) {
+        data.push(generateData());
+      }
+      return data;
+    }
 
     // Create chart
     // https://www.amcharts.com/docs/v5/charts/radar-chart/
@@ -84,11 +63,7 @@ const FlowerChart = () => {
 
     // Create axes and their renderers
     // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_axes
-    let xRenderer = am5radar.AxisRendererCircular.new(root, {
-      cellStartLocation: 0.2,
-      cellEndLocation: 0.8,
-    });
-
+    let xRenderer = am5radar.AxisRendererCircular.new(root, {});
     xRenderer.labels.template.setAll({
       radius: 10,
     });
@@ -102,8 +77,6 @@ const FlowerChart = () => {
       })
     );
 
-    xAxis.data.setAll(data);
-
     let yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
         renderer: am5radar.AxisRendererRadial.new(root, {}),
@@ -112,24 +85,26 @@ const FlowerChart = () => {
 
     // Create series
     // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_series
-    for (var i = 1; i <= 2; i++) {
+    for (var i = 0; i < 5; i++) {
       let series = chart.series.push(
         am5radar.RadarColumnSeries.new(root, {
+          stacked: true,
           name: "Series " + i,
           xAxis: xAxis,
           yAxis: yAxis,
-          valueYField: "value" + i,
+          valueYField: "value",
           categoryXField: "category",
         })
       );
 
+      series.set("stroke", root.interfaceColors.get("background"));
       series.columns.template.setAll({
+        width: am5.p100,
+        strokeOpacity: 0.1,
         tooltipText: "{name}: {valueY}",
-        width: am5.percent(100),
       });
 
-      series.data.setAll(data);
-
+      series.data.setAll(generateDatas(12));
       series.appear(1000);
     }
 
@@ -143,6 +118,9 @@ const FlowerChart = () => {
       am5.Scrollbar.new(root, { orientation: "vertical", exportable: false })
     );
 
+    let data = generateDatas(12);
+    xAxis.data.setAll(data);
+
     // Animate chart
     // https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
     chart.appear(1000, 100);
@@ -153,6 +131,7 @@ const FlowerChart = () => {
     };
   }, []); // Run this effect only once on mount
 
-  return <div id="FlowerChart" className="chart"></div>;
+  return <div id="PolarAreaChart" className="chart"></div>;
 };
-export default FlowerChart;
+
+export default PolarAreaChart;

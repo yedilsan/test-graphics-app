@@ -1,9 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5map from "@amcharts/amcharts5/map";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import React from "react";
 const WorldMapClusteredPoints = () => {
   useEffect(() => {
     /* Chart code */
@@ -53,7 +53,7 @@ const WorldMapClusteredPoints = () => {
         cursorOverStyle: "pointer",
       });
       container.events.on("click", function (e) {
-        pointSeries.zoomToCluster(e.target.dataItem);
+        if (e.target.dataItem) pointSeries.zoomToCluster(e.target.dataItem);
       });
 
       return am5.Bullet.new(root, {
@@ -249,7 +249,7 @@ const WorldMapClusteredPoints = () => {
       addCity(city.longitude, city.latitude, city.title);
     }
 
-    function addCity(longitude, latitude, title) {
+    function addCity(longitude: number, latitude: number, title: string) {
       pointSeries.data.push({
         geometry: { type: "Point", coordinates: [longitude, latitude] },
         title: title,

@@ -1,8 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import { Circle } from "@amcharts/amcharts5";
+import React from "react";
 
 const ControlChart = () => {
   useEffect(() => {
@@ -83,8 +84,8 @@ const ControlChart = () => {
       })
     );
 
-    series.bullets.push(function () {
-      let circleTemplate = am5.Template.new({
+    series.bullets.push(() => {
+      let circleTemplate = am5.Template.new<Circle>({
         radius: 6,
         templateField: "bulletSettings",
         fill: series.get("fill"),
@@ -100,29 +101,32 @@ const ControlChart = () => {
       });
     });
 
-    function createGuide(value, text, dashArray) {
+    function createGuide(value: number, text: string, dashArray?: number[]) {
       let guideDataItem = yAxis.makeDataItem({ value: value });
       yAxis.createAxisRange(guideDataItem);
-      guideDataItem.get("grid").setAll({
-        forceHidden: false,
-        strokeOpacity: 0.2,
-        strokeDasharray: dashArray,
-      });
+      let grid = guideDataItem.get("grid");
+      if (grid) {
+        grid.setAll({
+          forceHidden: false,
+          strokeOpacity: 0.2,
+          strokeDasharray: dashArray ?? [],
+        });
+      }
 
       let label = guideDataItem.get("label");
-      label.setAll({
-        text: text,
-        isMeasured: false,
-        centerY: am5.p100,
-      });
+      if (label) {
+        label.setAll({
+          text: text,
+          isMeasured: false,
+          centerY: am5.p100,
+        });
 
-      label.adapters.add("x", function () {
-        return chart.plotContainer.width();
-      });
+        label.adapters.add("x", () => chart.plotContainer.width());
 
-      chart.events.on("boundschanged", function () {
-        label.set("x", label.get("x"));
-      });
+        chart.events.on("boundschanged", () => {
+          label?.set("x", label.get("x"));
+        });
+      }
     }
 
     createGuide(98.8, "LCL", [2, 2]);

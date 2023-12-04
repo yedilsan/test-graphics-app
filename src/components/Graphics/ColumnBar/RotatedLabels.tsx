@@ -1,8 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import React from "react";
 
 const RotatedLabels = () => {
   useEffect(() => {
@@ -94,11 +94,11 @@ const RotatedLabels = () => {
       strokeOpacity: 0,
     });
     series.columns.template.adapters.add("fill", function (fill, target) {
-      return chart.get("colors").getIndex(series.columns.indexOf(target));
+      return chart.get("colors")?.getIndex(series.columns.indexOf(target));
     });
 
     series.columns.template.adapters.add("stroke", function (stroke, target) {
-      return chart.get("colors").getIndex(series.columns.indexOf(target));
+      return chart.get("colors")?.getIndex(series.columns.indexOf(target));
     });
 
     // Set data

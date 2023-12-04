@@ -1,8 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import React from "react";
 
 const LiveData = () => {
   useEffect(() => {
@@ -124,18 +124,22 @@ const LiveData = () => {
     }, 1000);
 
     function addData() {
-      let lastDataItem = series.dataItems[series.dataItems.length - 1];
-      let lastValue = lastDataItem.get("valueY");
-      let newValue = value + (Math.random() < 0.5 ? 1 : -1) * Math.random() * 6;
-      let lastDate = new Date(lastDataItem.get("valueX"));
-      let time = am5.time.add(new Date(lastDate), "day", 1).getTime();
-      series.data.removeIndex(0);
-      series.data.push({
-        date: time,
-        value: newValue,
-      });
+      var lastDataItem = series.dataItems[series.dataItems.length - 1];
+  var lastValue = lastDataItem.get("valueY");
+  
+  // Ensure that value is defined before proceeding
+  if (lastValue !== undefined) {
+    var newValue = lastValue + (Math.random() < 0.5 ? 1 : -1) * Math.random() * 6;
+    var lastDate = new Date(lastDataItem.get("valueX"));
+    var time = am5.time.add(new Date(lastDate), "day", 1).getTime();
+    
+    series.data.removeIndex(0);
+    series.data.push({
+      date: time,
+      value: newValue,
+    });
 
-      let newDataItem = series.dataItems[series.dataItems.length - 1];
+      var newDataItem = series.dataItems[series.dataItems.length - 1];
       newDataItem.animate({
         key: "valueYWorking",
         to: newValue,
@@ -144,14 +148,14 @@ const LiveData = () => {
         easing: easing,
       });
 
-      let animation = newDataItem.animate({
+      var animation = newDataItem.animate({
         key: "locationX",
         to: 0.5,
         from: -0.5,
         duration: 600,
       });
       if (animation) {
-        let tooltip = xAxis.get("tooltip");
+        var tooltip = xAxis.get("tooltip");
         if (tooltip && !tooltip.isHidden()) {
           animation.events.on("stopped", function () {
             xAxis.updateTooltip();

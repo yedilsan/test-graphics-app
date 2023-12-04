@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
@@ -30,9 +30,9 @@ const ZoomableRadar = () => {
       };
     }
 
-    function generateDatas(count) {
+    function generateDatas(count: number) {
       cat = -1;
-      let data = [];
+      let data = [] as { category: string; value: number }[];
       for (var i = 0; i < count; ++i) {
         data.push(generateData());
       }

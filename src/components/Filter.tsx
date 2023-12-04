@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Button,
   Modal,
@@ -10,6 +10,7 @@ import {
 } from "antd";
 const { RangePicker } = DatePicker;
 import "../Pages/form.css";
+import React from "react";
 const Filter = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -23,7 +24,15 @@ const Filter = () => {
   };
   return (
     <>
-      <Button type="ghost" onClick={showModal} style={{}}>
+      <Button
+        ghost
+        onClick={showModal}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="16"
