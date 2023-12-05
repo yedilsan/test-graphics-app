@@ -15,7 +15,6 @@ import PolarAreaChart from "../components/Graphics/RadarPolar/PolarAreaChart";
 import FlowerChart from "../components/Graphics/RadarPolar/FlowerChart";
 import "./graphics.css";
 import Filter from "../components/Filter";
-import React from "react";
 
 const Graphics = () => (
   <DefaultLayout>

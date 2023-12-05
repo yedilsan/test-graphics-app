@@ -10,7 +10,7 @@ import {
 } from "antd";
 const { RangePicker } = DatePicker;
 import "../Pages/form.css";
-import React from "react";
+
 const Filter = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {

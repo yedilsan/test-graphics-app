@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
