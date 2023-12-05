@@ -123,22 +123,20 @@ const LiveData = () => {
     }, 1000);
 
     function addData() {
-      var lastDataItem = series.dataItems[series.dataItems.length - 1];
-  var lastValue = lastDataItem.get("valueY");
-  
-  // Ensure that value is defined before proceeding
-  if (lastValue !== undefined) {
-    var newValue = lastValue + (Math.random() < 0.5 ? 1 : -1) * Math.random() * 6;
-    var lastDate = new Date(lastDataItem.get("valueX"));
-    var time = am5.time.add(new Date(lastDate), "day", 1).getTime();
-    
-    series.data.removeIndex(0);
-    series.data.push({
-      date: time,
-      value: newValue,
-    });
+      let lastDataItem = series.dataItems[series.dataItems.length - 1];
+      let lastValue = lastDataItem.get("valueY");
+      let newValue = value + (Math.random() < 0.5 ? 1 : -1) * Math.random() * 6;
+      let valueX = lastDataItem.get("valueX");
+      let lastDate =
+        valueX !== undefined && valueX !== null ? new Date(valueX) : new Date();
+      let time = am5.time.add(new Date(lastDate), "day", 1).getTime();
+      series.data.removeIndex(0);
+      series.data.push({
+        date: time,
+        value: newValue,
+      });
 
-      var newDataItem = series.dataItems[series.dataItems.length - 1];
+      let newDataItem = series.dataItems[series.dataItems.length - 1];
       newDataItem.animate({
         key: "valueYWorking",
         to: newValue,
@@ -147,14 +145,14 @@ const LiveData = () => {
         easing: easing,
       });
 
-      var animation = newDataItem.animate({
+      let animation = newDataItem.animate({
         key: "locationX",
         to: 0.5,
         from: -0.5,
         duration: 600,
       });
       if (animation) {
-        var tooltip = xAxis.get("tooltip");
+        let tooltip = xAxis.get("tooltip");
         if (tooltip && !tooltip.isHidden()) {
           animation.events.on("stopped", function () {
             xAxis.updateTooltip();

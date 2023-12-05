@@ -4,7 +4,7 @@ import ClusteredColumnChart from "../components/Graphics/ColumnBar/ClusteredColu
 import ClusteredBarChart from "../components/Graphics/ColumnBar/ClusteredBarChart";
 import LineGraph from "../components/Graphics/LineArea/LineGraph";
 import ControlChart from "../components/Graphics/LineArea/ControlChart";
-//import LiveData from "../components/Graphics/LineArea/LiveData";
+import LiveData from "../components/Graphics/LineArea/LiveData";
 import PieChart from "../components/Graphics/PieDonut/PieChart";
 import DonutChart from "../components/Graphics/PieDonut/DonutChart";
 //import PieChartBrokenDownSlices from "../components/Graphics/PieDonut/PieChartBrokenDownSlices";
@@ -38,7 +38,7 @@ const Graphics = () => (
     <div className="charts">
       <LineGraph />
       <ControlChart />
-      {/* <LiveData /> */}
+      <LiveData />
     </div>
     <h2 style={{ textAlign: "center" }}>Pie & Donut</h2>
     <div className="charts">
