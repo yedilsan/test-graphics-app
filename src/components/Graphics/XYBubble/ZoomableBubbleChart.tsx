@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import { Circle } from "@amcharts/amcharts5";
 const ZoomableBubbleChart = () => {
   useEffect(() => {
     /* Chart code */
@@ -82,17 +83,17 @@ const ZoomableBubbleChart = () => {
     );
 
     series.strokes.template.set("visible", false);
-
     // Add bullet
     // https://www.amcharts.com/docs/v5/charts/xy-chart/series/#Bullets
-    let circleTemplate = am5.Template.new({});
+    let circleTemplate: am5.Template<Circle> = am5.Template.new({});
     circleTemplate.adapters.add("fill", function (fill, target) {
-      let dataItem = target.dataItem;
+      let dataItem = (target as any).dataItem;
       if (dataItem) {
         return am5.Color.fromString(dataItem.dataContext.color);
       }
       return fill;
     });
+
     series.bullets.push(function () {
       let bulletCircle = am5.Circle.new(
         root,
