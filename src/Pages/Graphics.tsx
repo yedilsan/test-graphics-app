@@ -7,7 +7,7 @@ import ControlChart from "../components/Graphics/LineArea/ControlChart";
 import LiveData from "../components/Graphics/LineArea/LiveData";
 import PieChart from "../components/Graphics/PieDonut/PieChart";
 import DonutChart from "../components/Graphics/PieDonut/DonutChart";
-//import PieChartBrokenDownSlices from "../components/Graphics/PieDonut/PieChartBrokenDownSlices";
+import PieChartBrokenDownSlices from "../components/Graphics/PieDonut/PieChartBrokenDownSlices";
 //import ZoomableBubbleChart from "../components/Graphics/XYBubble/ZoomableBubbleChart";
 import WorldMapClusteredPoints from "../components/Graphics/Maps/WorldMapClusteredPoints";
 import ZoomableRadar from "../components/Graphics/RadarPolar/ZoomableRadar";
@@ -44,7 +44,7 @@ const Graphics = () => (
     <div className="charts">
       <PieChart />
       <DonutChart />
-      {/* <PieChartBrokenDownSlices /> */}
+      <PieChartBrokenDownSlices />
     </div>
     <h2 style={{ textAlign: "center" }}>XY & Bubble</h2>
     <div className="charts">{/* <ZoomableBubbleChart /> */}</div>
