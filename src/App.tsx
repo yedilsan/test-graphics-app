@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Graphics from "./Pages/Graphics";
 import Forms from "./Pages/Forms";
-import React from "react";
 
 function App() {
   return (
