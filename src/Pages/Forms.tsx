@@ -2,7 +2,6 @@ import DefaultLayout from "../Layout/DefaultLayout";
 import { DatePicker, Form, Radio, Select, Button, ConfigProvider } from "antd";
 const { RangePicker } = DatePicker;
 import "./form.css";
-import React from "react";
 
 const Forms = () => {
   return (
