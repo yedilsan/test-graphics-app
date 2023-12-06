@@ -133,7 +133,7 @@ const Forms = () => {
                 Ответ доставлен заявителю
               </Select.Option>
               <Select.Option value="status7">Отклонено</Select.Option>
-              <Select.Option value="status7">Пост опубликован</Select.Option>
+              <Select.Option value="status8">Пост опубликован</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item label="Регион">
