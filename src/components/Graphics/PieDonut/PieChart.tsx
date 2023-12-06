@@ -3,6 +3,11 @@ import * as am5 from "@amcharts/amcharts5";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5percent from "@amcharts/amcharts5/percent";
 
+interface DataItem {
+  category: string;
+  value: number;
+}
+
 const PieChart = () => {
   useEffect(() => {
     /* Chart code */
@@ -38,7 +43,7 @@ const PieChart = () => {
 
     // Set data
     // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
-    series.data.setAll([
+    let data: DataItem[] = [
       {
         category: "Lithuania",
         value: 501.9,
@@ -67,7 +72,8 @@ const PieChart = () => {
         category: "UK",
         value: 99,
       },
-    ]);
+    ];
+    series.data.setAll(data);
 
     series.appear(1000, 100);
 

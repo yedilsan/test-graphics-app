@@ -3,6 +3,16 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
+interface DataItem {
+  year: string | number;
+  europe: number;
+  namerica: number;
+  asia: number;
+  lamerica: number;
+  meast: number;
+  africa: number;
+}
+
 const ClusteredColumnChart = () => {
   useEffect(() => {
     /* Chart code */
@@ -35,7 +45,7 @@ const ClusteredColumnChart = () => {
       })
     );
 
-    let data = [
+    let data: DataItem[] = [
       {
         year: "2021",
         europe: 2.5,

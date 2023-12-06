@@ -3,6 +3,13 @@ import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5map from "@amcharts/amcharts5/map";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+
+interface cityData {
+  title: string;
+  latitude: number;
+  longitude: number;
+}
+
 const WorldMapClusteredPoints = () => {
   useEffect(() => {
     /* Chart code */
@@ -75,7 +82,7 @@ const WorldMapClusteredPoints = () => {
     });
 
     // Set data
-    let cities = [
+    let cities: cityData[] = [
       { title: "Vienna", latitude: 48.2092, longitude: 16.3728 },
       { title: "Minsk", latitude: 53.9678, longitude: 27.5766 },
       { title: "Brussels", latitude: 50.8371, longitude: 4.3676 },

@@ -5,6 +5,12 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5radar from "@amcharts/amcharts5/radar";
 import "./radar.css";
 
+interface DataItem {
+  category: string;
+  value1: number;
+  value2: number;
+}
+
 const FlowerChart = () => {
   useEffect(() => {
     // Create root element
@@ -17,7 +23,7 @@ const FlowerChart = () => {
 
     // Data
     // https://www.amcharts.com/docs/v5/charts/radar-chart/#Setting_data
-    let data = [
+    let data: DataItem[] = [
       {
         category: "One",
         value1: 8,

@@ -3,6 +3,12 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
+interface DataItem {
+  year: string;
+  income: number;
+  expenses: number;
+}
+
 const ClusteredBarChart = () => {
   useEffect(() => {
     /* Chart code */
@@ -28,7 +34,7 @@ const ClusteredBarChart = () => {
     );
 
     // Data
-    let data = [
+    let data: DataItem[] = [
       {
         year: "2017",
         income: 23.5,

@@ -3,6 +3,11 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
+interface DataItem {
+  country: string | number;
+  value: number;
+}
+
 const RotatedLabels = () => {
   useEffect(() => {
     /* Chart code */
@@ -101,7 +106,7 @@ const RotatedLabels = () => {
     });
 
     // Set data
-    let data = [
+    let data: DataItem[] = [
       {
         country: "USA",
         value: 2025,

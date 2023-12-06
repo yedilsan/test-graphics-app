@@ -3,6 +3,16 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import { Circle } from "@amcharts/amcharts5";
+
+interface DataItem {
+  title: string;
+  id: string;
+  color: string;
+  continent: string;
+  x: number;
+  y: number;
+  value: number;
+}
 const ZoomableBubbleChart = () => {
   useEffect(() => {
     /* Chart code */
@@ -123,7 +133,7 @@ const ZoomableBubbleChart = () => {
 
     // Set data
     // https://www.amcharts.com/docs/v5/charts/xy-chart/series/#Setting_data
-    series.data.setAll([
+    let data: DataItem[] = [
       {
         title: "Afghanistan",
         id: "AF",
@@ -1636,7 +1646,8 @@ const ZoomableBubbleChart = () => {
         y: 58.142,
         value: 13013678,
       },
-    ]);
+    ];
+    series.data.setAll(data);
 
     // Add cursor
     // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/

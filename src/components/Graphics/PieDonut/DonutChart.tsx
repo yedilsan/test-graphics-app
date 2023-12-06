@@ -2,6 +2,11 @@ import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5percent from "@amcharts/amcharts5/percent";
+
+interface DataItem {
+  value: number;
+  category: string;
+}
 const DonutChart = () => {
   useEffect(() => {
     /* Chart code */
@@ -40,7 +45,7 @@ const DonutChart = () => {
 
     // Set data
     // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
-    series.data.setAll([
+    let data: DataItem[] = [
       { value: 10, category: "One" },
       { value: 9, category: "Two" },
       { value: 6, category: "Three" },
@@ -48,7 +53,9 @@ const DonutChart = () => {
       { value: 4, category: "Five" },
       { value: 3, category: "Six" },
       { value: 1, category: "Seven" },
-    ]);
+    ];
+
+    series.data.setAll(data);
 
     // Create legend
     // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/

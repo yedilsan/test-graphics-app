@@ -4,6 +4,12 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import { Circle } from "@amcharts/amcharts5";
 
+interface DataItem {
+  timestamp: number;
+  value: number;
+  bulletSettings?: {};
+}
+
 const ControlChart = () => {
   useEffect(() => {
     /* Chart code */
@@ -132,7 +138,7 @@ const ControlChart = () => {
     createGuide(100.1, "CL");
     createGuide(101.2, "UCL", [2, 2]);
 
-    let data = [
+    let data: DataItem[] = [
       {
         timestamp: new Date(2020, 0, 1, 22, 30).getTime(),
         value: 99.71,

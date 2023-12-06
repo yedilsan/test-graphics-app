@@ -2,6 +2,16 @@ import { useEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5percent from "@amcharts/amcharts5/percent";
+
+interface TypeItem {
+  type: string;
+  percent: number;
+  color: am5.Color | undefined;
+  subs: Array<{
+    type: string;
+    percent: number;
+  }>;
+}
 const PieChartBrokenDownSlices = () => {
   useEffect(() => {
     /* Chart code */
@@ -47,7 +57,7 @@ const PieChartBrokenDownSlices = () => {
     }
     // Define data
     let selected: number | undefined;
-    let types = [
+    let types: TypeItem[] = [
       {
         type: "Fossil Energy",
         percent: 70,
