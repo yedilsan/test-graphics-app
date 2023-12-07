@@ -15,52 +15,75 @@ import PolarAreaChart from "../components/Graphics/RadarPolar/PolarAreaChart";
 import FlowerChart from "../components/Graphics/RadarPolar/FlowerChart";
 import "./graphics.css";
 import Filter from "../components/Filter";
+import { Spin } from "antd";
+import { useState, useEffect } from "react";
 
-const Graphics = () => (
-  <DefaultLayout>
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        right: 0,
-        margin: "15px",
-      }}
-    >
-      <Filter />
-    </div>
-    <h2 style={{ textAlign: "center" }}>Column & Bar</h2>
-    <div className="charts">
-      <RotatedLabels />
-      <ClusteredColumnChart />
-      <ClusteredBarChart />
-    </div>
-    <h2 style={{ textAlign: "center" }}>Line & Area</h2>
-    <div className="charts">
-      <LineGraph />
-      <ControlChart />
-      <LiveData />
-    </div>
-    <h2 style={{ textAlign: "center" }}>Pie & Donut</h2>
-    <div className="charts">
-      <PieChart />
-      <DonutChart />
-      <PieChartBrokenDownSlices />
-    </div>
-    <h2 style={{ textAlign: "center" }}>XY & Bubble</h2>
-    <div className="charts">
-      <ZoomableBubbleChart />
-    </div>
-    <h2 style={{ textAlign: "center" }}>Maps</h2>
-    <div className="charts charts_map">
-      <WorldMapClusteredPoints />
-    </div>
-    <h2 style={{ textAlign: "center" }}>Rader & Polar</h2>
-    <div className="charts">
-      <ZoomableRadar />
-      <PolarAreaChart />
-      <FlowerChart />
-    </div>
-  </DefaultLayout>
-);
+const Graphics = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate content loading delay
+    const delay = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    // Cleanup the timeout in case the component unmounts before the delay
+    return () => clearTimeout(delay);
+  }, []);
+  return (
+    <DefaultLayout>
+      {loading ? (
+        <div style={{ textAlign: "center", marginTop: "50px" }}>
+          <Spin size="large" />
+        </div>
+      ) : (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              margin: "15px",
+            }}
+          >
+            <Filter />
+          </div>
+          <h2 style={{ textAlign: "center" }}>Column & Bar</h2>
+          <div className="charts">
+            <RotatedLabels />
+            <ClusteredColumnChart />
+            <ClusteredBarChart />
+          </div>
+          <h2 style={{ textAlign: "center" }}>Line & Area</h2>
+          <div className="charts">
+            <LineGraph />
+            <ControlChart />
+            <LiveData />
+          </div>
+          <h2 style={{ textAlign: "center" }}>Pie & Donut</h2>
+          <div className="charts">
+            <PieChart />
+            <DonutChart />
+            <PieChartBrokenDownSlices />
+          </div>
+          <h2 style={{ textAlign: "center" }}>XY & Bubble</h2>
+          <div className="charts">
+            <ZoomableBubbleChart />
+          </div>
+          <h2 style={{ textAlign: "center" }}>Maps</h2>
+          <div className="charts charts_map">
+            <WorldMapClusteredPoints />
+          </div>
+          <h2 style={{ textAlign: "center" }}>Rader & Polar</h2>
+          <div className="charts">
+            <ZoomableRadar />
+            <PolarAreaChart />
+            <FlowerChart />
+          </div>
+        </>
+      )}
+    </DefaultLayout>
+  );
+};
 
 export default Graphics;
