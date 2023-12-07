@@ -1,12 +1,14 @@
 import { AreaChartOutlined, FormOutlined } from "@ant-design/icons";
 import { ConfigProvider, Layout, Menu } from "antd";
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 const { Content, Footer, Sider } = Layout;
+const items = [
+  { icon: <AreaChartOutlined />, label: "Graphics", path: "/" },
+  { icon: <FormOutlined />, label: "Forms", path: "/forms" },
+];
 
-// eslint-disable-next-line react/prop-types
 const DefaultLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <ConfigProvider
@@ -37,12 +39,11 @@ const DefaultLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
             <h1 style={{ color: "white", textAlign: "center" }}>Ant Design</h1>
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1" icon={<AreaChartOutlined />}>
-              <NavLink to="/">Graphics</NavLink>
-            </Menu.Item>
-            <Menu.Item key="2" icon={<FormOutlined />}>
-              <NavLink to="/forms">Forms</NavLink>
-            </Menu.Item>
+            {items.map((item, index) => (
+              <Menu.Item key={String(index + 1)} icon={item.icon}>
+                <NavLink to={item.path}>{item.label}</NavLink>
+              </Menu.Item>
+            ))}
           </Menu>
         </Sider>
         <Layout
