@@ -1,7 +1,7 @@
 import { AreaChartOutlined, FormOutlined } from "@ant-design/icons";
 import { ConfigProvider, Layout, Menu } from "antd";
 import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const { Content, Footer, Sider } = Layout;
 const items = [
@@ -10,6 +10,8 @@ const items = [
 ];
 
 const DefaultLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
+  const location = useLocation();
+
   return (
     <ConfigProvider
       theme={{
@@ -38,9 +40,9 @@ const DefaultLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="demo-logo-vertical">
             <h1 style={{ color: "white", textAlign: "center" }}>Ant Design</h1>
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            {items.map((item, index) => (
-              <Menu.Item key={String(index + 1)} icon={item.icon}>
+          <Menu theme="dark" mode="inline" selectedKeys={[location.pathname]}>
+            {items.map((item) => (
+              <Menu.Item key={item.path} icon={item.icon}>
                 <NavLink to={item.path}>{item.label}</NavLink>
               </Menu.Item>
             ))}
