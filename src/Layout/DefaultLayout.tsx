@@ -106,7 +106,6 @@ const DefaultLayout: React.FC<{ children: React.ReactNode }> = ({
           </Header>
           <Content
             style={{
-              margin: "24px 16px",
               minHeight: 280,
               background: "#19375B",
             }}
