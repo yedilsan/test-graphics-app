@@ -52,7 +52,6 @@ const DonutChart = () => {
       { value: 5, category: "Four" },
       { value: 4, category: "Five" },
       { value: 3, category: "Six" },
-      { value: 1, category: "Seven" },
     ];
 
     series.data.setAll(data);
