@@ -15,7 +15,7 @@ import PolarAreaChart from "../components/Graphics/RadarPolar/PolarAreaChart";
 import FlowerChart from "../components/Graphics/RadarPolar/FlowerChart";
 import "./graphics.css";
 import Filter from "../components/Filter";
-import { Spin } from "antd";
+import { Spin, Col, Row } from "antd";
 import { useState, useEffect } from "react";
 
 const Graphics = () => {
@@ -48,38 +48,63 @@ const Graphics = () => {
           >
             <Filter />
           </div>
-          <h2 style={{ textAlign: "center" }}>Column & Bar</h2>
-          <div className="charts">
-            <RotatedLabels />
-            <ClusteredColumnChart />
-            <ClusteredBarChart />
-          </div>
-          <h2 style={{ textAlign: "center" }}>Line & Area</h2>
-          <div className="charts">
-            <LineGraph />
-            <ControlChart />
-            <LiveData />
-          </div>
-          <h2 style={{ textAlign: "center" }}>Pie & Donut</h2>
-          <div className="charts">
-            <PieChart />
-            <DonutChart />
-            <PieChartBrokenDownSlices />
-          </div>
-          <h2 style={{ textAlign: "center" }}>XY & Bubble</h2>
-          <div className="charts">
-            <ZoomableBubbleChart />
-          </div>
-          <h2 style={{ textAlign: "center" }}>Maps</h2>
-          <div className="charts charts_map">
-            <WorldMapClusteredPoints />
-          </div>
-          <h2 style={{ textAlign: "center" }}>Rader & Polar</h2>
-          <div className="charts">
-            <ZoomableRadar />
-            <PolarAreaChart />
-            <FlowerChart />
-          </div>
+          <h1
+            style={{
+              textAlign: "center",
+              marginBottom: "40px",
+              color: "#67B7DC",
+            }}
+          >
+            Graphics
+          </h1>
+          <Row className="charts">
+            <Col className="chart_layout">
+              <RotatedLabels />
+            </Col>
+            <Col className="chart_layout">
+              <ClusteredColumnChart />
+            </Col>
+            <Col className="chart_layout">
+              <ClusteredBarChart />
+            </Col>
+
+            <Col className="chart_layout">
+              <LineGraph />
+            </Col>
+            <Col className="chart_layout">
+              <ControlChart />
+            </Col>
+            <Col className="chart_layout">
+              <LiveData />
+            </Col>
+
+            <Col className="chart_layout">
+              <PieChart />
+            </Col>
+            <Col className="chart_layout">
+              <DonutChart />
+            </Col>
+            <Col className="chart_layout">
+              <PieChartBrokenDownSlices />
+            </Col>
+
+            <Col className="chart_layout">
+              <ZoomableBubbleChart />
+            </Col>
+            <Col className="chart_layout chart_map">
+              <WorldMapClusteredPoints />
+            </Col>
+
+            <Col className="chart_layout">
+              <ZoomableRadar />
+            </Col>
+            <Col className="chart_layout">
+              <PolarAreaChart />
+            </Col>
+            <Col className="chart_layout">
+              <FlowerChart />
+            </Col>
+          </Row>
         </>
       )}
     </DefaultLayout>
