@@ -1,21 +1,25 @@
 .charts {
-  gap: 20px;
+  gap: 30px;
   justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
 }
 .chart {
   width: 500px;
-  height: 500px;
+  height: 450px;
   color: #ffffff;
 }
 
 .chart_layout {
-  width: 500px;
-  height: 500px;
+  min-width: 30vw;
+  max-width: 500px;
+  height: 50vh;
   overflow: auto;
 }
 
 .chart_map {
   min-width: 75vw;
+  max-width: 700px;
   height: 50vh;
 }
 

@@ -48,15 +48,6 @@ const Graphics = () => {
           >
             <Filter />
           </div>
-          <h1
-            style={{
-              textAlign: "center",
-              marginBottom: "40px",
-              color: "#67B7DC",
-            }}
-          >
-            Graphics
-          </h1>
           <Row className="charts">
             <Col className="chart_layout">
               <RotatedLabels />
