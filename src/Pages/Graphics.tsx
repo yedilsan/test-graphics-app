@@ -82,7 +82,7 @@ const Graphics = () => {
             <Col className="chart_layout">
               <ZoomableBubbleChart />
             </Col>
-            <Col className="chart_layout chart_map">
+            <Col className="chart_layout">
               <WorldMapClusteredPoints />
             </Col>
 

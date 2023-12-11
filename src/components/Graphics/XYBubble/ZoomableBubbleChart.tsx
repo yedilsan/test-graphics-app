@@ -1686,7 +1686,7 @@ const ZoomableBubbleChart = () => {
     };
   }, []); // Run this effect only once on mount
 
-  return <div id="ZoomableBubbleChart" className="chart_map"></div>;
+  return <div id="ZoomableBubbleChart" className="chart"></div>;
 };
 
 export default ZoomableBubbleChart;

@@ -270,7 +270,7 @@ const WorldMapClusteredPoints = () => {
     };
   }, []); // Run this effect only once on mount
 
-  return <div id="WorldMapClusteredPoints" className="chart_map"></div>;
+  return <div id="WorldMapClusteredPoints" className="chart"></div>;
 };
 
 export default WorldMapClusteredPoints;
