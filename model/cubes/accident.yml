@@ -1,0 +1,60 @@
+cubes:
+  - name: accident
+    sql_table: rta.accident
+    data_source: default
+
+    joins:
+      - name: illumination
+        sql: "{CUBE}.illumination_id = {illumination}.id"
+        relationship: many_to_one
+
+      - name: light
+        sql: "{CUBE}.light_id = {light}.id"
+        relationship: many_to_one
+
+      - name: environment
+        sql: "{CUBE}.environment_id = {environment}.id"
+        relationship: many_to_one
+
+      - name: location
+        sql: "{CUBE}.location_id = {location}.id"
+        relationship: many_to_one
+
+      - name: article
+        sql: "{CUBE}.article_id = {article}.id"
+        relationship: many_to_one
+
+      - name: kind
+        sql: "{CUBE}.kind_id = {kind}.id"
+        relationship: many_to_one
+
+      - name: area_type
+        sql: "{CUBE}.area_type_id = {area_type}.id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: public_transport
+        sql: public_transport
+        type: string
+
+      - name: external_id
+        sql: external_id
+        type: string
+
+      - name: occurred_at
+        sql: occurred_at
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

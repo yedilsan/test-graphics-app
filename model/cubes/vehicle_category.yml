@@ -1,0 +1,33 @@
+cubes:
+  - name: vehicle_category
+    sql_table: rta.vehicle_category
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: name_kk
+        sql: name_kk
+        type: string
+
+      - name: code
+        sql: code
+        type: string
+
+      - name: name_ru
+        sql: name_ru
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

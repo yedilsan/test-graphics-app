@@ -1,11 +1,23 @@
 cubes:
-  - name: accident_condition
-    sql_table: rta.accident_condition
+  - name: location
+    sql_table: rta.location
     data_source: default
 
     joins: []
 
-    dimensions: []
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: name_ru
+        sql: name_ru
+        type: string
+
+      - name: name_kk
+        sql: name_kk
+        type: string
 
     measures:
       - name: count
