@@ -51,6 +51,7 @@ const QueryResults = () => {
 
       <QueryResult
         query={{
+          order: {},
           measures: ["accident.count"],
           timeDimensions: [
             {
@@ -61,10 +62,11 @@ const QueryResults = () => {
           filters: [
             {
               member: "accident.fatalities",
-              operator: "equals",
-              values: ["1"],
+              operator: "gt",
+              values: ["0"],
             },
           ],
+          limit: 5000,
         }}
         render={(resultSet, error) => (
           <AccidentCount
