@@ -140,9 +140,9 @@ const Graphics = () => {
                   measures: ["accident_impairment.count"],
                   filters: [
                     {
-                      member: "impairment.name_ru",
-                      operator: "contains",
-                      values: ["алкогольное опьянение"],
+                      member: "impairment.id",
+                      operator: "equals",
+                      values: [2],
                     },
                   ],
                 }}
