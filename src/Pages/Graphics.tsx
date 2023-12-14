@@ -134,6 +134,12 @@ const Graphics = () => {
               <QueryResult
                 query={{
                   dimensions: ["impairment.name_ru"],
+                  timeDimensions: [
+                    {
+                      dimension: "accident.occurred_at",
+                      dateRange: "Last year",
+                    },
+                  ],
                   order: {
                     "accident_impairment.count": "desc",
                   },
