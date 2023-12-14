@@ -1,0 +1,23 @@
+cubes:
+  - name: accident_vehicle_category
+    sql_table: rta.accident_vehicle_category
+    data_source: default
+
+    joins:
+      - name: accident
+        sql: "{CUBE}.accident_id = {accident}.id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: accident
+        sql: accident_id
+        type: number
+        primary_key: true
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started

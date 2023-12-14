@@ -1,5 +1,4 @@
 import React from "react";
-import { Statistic } from "antd";
 import { ResultSet } from "@cubejs-client/core";
 
 interface AccidentCountProps {
@@ -33,7 +32,6 @@ const AccidentCount: React.FC<AccidentCountProps> = ({
         fontSize: "16px",
       }}
     >
-      {/* <Statistic title={title} value={accidentCount} /> */}
       <p>{title}</p>
       <span>{accidentCount}</span>
     </div>

@@ -131,6 +131,29 @@ const Graphics = () => {
                   />
                 )}
               />
+              <QueryResult
+                query={{
+                  dimensions: ["impairment.name_ru"],
+                  order: {
+                    "accident_impairment.count": "desc",
+                  },
+                  measures: ["accident_impairment.count"],
+                  filters: [
+                    {
+                      member: "impairment.name_ru",
+                      operator: "contains",
+                      values: ["алкогольное опьянение"],
+                    },
+                  ],
+                }}
+                render={(resultSet, error) => (
+                  <AccidentCount
+                    resultSet={resultSet}
+                    error={error}
+                    title="С алкогольным опьянением"
+                  />
+                )}
+              />
             </Col>
             <Col className="chart_layout">
               <RotatedLabels />
