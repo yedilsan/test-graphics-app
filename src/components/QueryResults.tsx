@@ -25,6 +25,58 @@ const QueryResults = () => {
 
       <QueryResult
         query={{
+          measures: ["accident.count"],
+          timeDimensions: [
+            {
+              dimension: "accident.occurred_at",
+              dateRange: "Last year",
+            },
+          ],
+          filters: [
+            {
+              member: "accident.injuries",
+              operator: "gt",
+              values: ["0"],
+            },
+          ],
+        }}
+        render={(resultSet, error) => (
+          <AccidentCount
+            resultSet={resultSet}
+            error={error}
+            title="Количество раненных"
+          />
+        )}
+      />
+
+      <QueryResult
+        query={{
+          measures: ["accident.count"],
+          timeDimensions: [
+            {
+              dimension: "accident.occurred_at",
+              dateRange: "Last year",
+            },
+          ],
+          filters: [
+            {
+              member: "accident.fatalities",
+              operator: "equals",
+              values: ["1"],
+            },
+          ],
+        }}
+        render={(resultSet, error) => (
+          <AccidentCount
+            resultSet={resultSet}
+            error={error}
+            title="Количество погибших"
+          />
+        )}
+      />
+
+      <QueryResult
+        query={{
           limit: 5000,
           measures: ["accident.count"],
           order: {

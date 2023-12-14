@@ -50,6 +50,14 @@ cubes:
         sql: occurred_at
         type: time
 
+      - name: injuries
+        sql: injuries
+        type: number
+
+      - name: fatalities
+        sql: fatalities
+        type: number
+
     measures:
       - name: count
         type: count
@@ -57,4 +65,3 @@ cubes:
     pre_aggregations:
       # Pre-aggregation definitions go here.
       # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
-

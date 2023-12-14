@@ -17,7 +17,8 @@
 .chart_layout {
   width: calc(33.33% - 20px);
   max-width: 100%;
-  min-height: calc(50vh - 20px);
+  height: calc(50vh - 20px);
+  min-height: 50%;
   overflow: auto;
   white-space: nowrap;
 
